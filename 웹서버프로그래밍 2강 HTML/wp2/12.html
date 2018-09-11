@@ -1,0 +1,39 @@
+﻿<!-- 날짜 : 6월 7일 -->
+<!-- 작성자 : 송태양 -->
+<!-- 제목 : 12. 입력 폼 만들기 -->
+<meta charset="UTF-8"/>
+<html>
+<body>
+    <FORM METHOD=POST name='fm'><!--양식의 방법을 정의-->
+        <table width=650 border=1 cellspacing=0 cellpadding=5>
+        <tr><!--표전체형식을정의-->
+            <td><b>번호</b></td><!--표내부에들어갈형식을정의-->
+            <td><input type=text name=id size=70 maxlength=70 value=1 readonly>
+        </td><!--어떤형태로 입력할건지 정의-->
+        </tr>
+        <tr><!--표내부에들어갈형식을정의-->
+            <td><b>성별</b></td>
+            <td>
+            <select name=sex><!--선택사항상자 만들어주기-->
+            <option value='M' selected>남자
+            <option value='W'>여자
+            </select><!--선택사항상자닫기-->
+            </td>
+        </tr>
+        <tr>
+            <td><b>성명</b></td><!--표내부에들어갈형식을정의-->
+            <td><input type=text name=name size=70 maxlength=70 value='송태양'></td>
+        </tr><!--어떤형태로 입력할건지 정의-->
+        <tr>
+            <td><b>주소</b></td><!--표내부에들어갈형식을정의-->
+            <td><input type=text name =addr size=70 maxlength=70 value='경기 광주'></td>
+        </tr><!--어떤형태로 입력할건지 정의-->
+        <tr>
+            <td><b>전화번호</b></td><!--표내부에들어갈형식을정의-->
+            <td><input type=text name =addr size=70 maxlength=70 value=''></td>
+        </tr><!--표닫기-->
+
+        </table><!--테이블닫기-->
+    </FORM><!--양식닫기-->
+</body>
+</html>
