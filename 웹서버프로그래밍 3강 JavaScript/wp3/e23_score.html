@@ -1,0 +1,128 @@
+<!-- 날짜 : 6월 4일 -->
+<!-- 작성자 : 송태양 -->
+<!-- 제목 : 23. 성적집계표 작성 -->
+<meta charset="UTF-8"/>
+<html>
+	<head>
+		<script>
+            /////////// 자료 생성하기 ///////////////////////
+            // 배열 만들기
+            var iPerson = 30;       // 총 인원수
+            var name_k08 = new Array();// 이름 배열
+            var kor_k08 = new Array();  // 국어점수 배열
+            var eng_k08 = new Array();  // 영어점수 배열
+            var mat_k08 = new Array();  // 수학점수 배열
+            var sum = new Array();  // 합계 배열
+            var ave = new Array();  // 평균 배열
+
+            // 자료 만들고 배열에 넣기
+            // Math.random : 무작위로 0 ~ 1 사이의 값을 넣음
+            // Math.floor : 소수점 이하를 버림.
+            for(var i = 0; i < iPerson; i++) {
+                name_k08[i] = '태양' + leadingZeros((i+1), 2);
+                kor_k08[i] = Math.floor(Math.random() * 100);
+                eng_k08[i] = Math.floor(Math.random() * 100);
+                mat_k08[i] = Math.floor(Math.random() * 100);
+                sum[i] = kor_k08[i] + eng_k08[i] + mat_k08[i];
+                ave[i] = Math.floor(sum[i] / 3);
+            }
+            
+            // 배열의 합계 구하기
+            // 국어, 영어, 수학, 총점, 평균의 합계
+            var korsum = 0;
+            var engsum = 0;
+            var matsum = 0;
+            var sumsum = 0;
+            var avesum = 0;
+            for(var i = 0; i < iPerson; i++) {
+                korsum += kor_k08[i];
+                engsum += eng_k08[i];
+                matsum += mat_k08[i];
+                sumsum += sum[i];
+                avesum += ave[i];
+            }
+            
+            // 배열의 평균 구하기
+            // 국어, 영어, 수학, 총점, 평균의 평균
+            var korave = Math.floor(korsum / iPerson);
+            var engave = Math.floor(engsum / iPerson);
+            var matave = Math.floor(matsum / iPerson);
+            var sumave = Math.floor(sumsum / iPerson);
+            var aveave = Math.floor(avesum / iPerson);
+            
+            ////////// 필요 함수 정의하기 //////////////////////////////////////////////////
+            // 숫자 앞에 0 넣기
+            function leadingZeros(n, digits) {  
+                n = n.toString();     // 숫자를 스트링으로 바꿈.
+                var zero = '';       // 0넣기 변수를 정의
+                if (n.length < digits) {                        // 숫자의 길이가 자리수보다 작을 때
+                    for (var i = 0; i < digits - n.length; i++) // 나머지 자리수만큼 0을 더함.
+                    zero += '0';
+                }
+                return zero + n;    // 기존의 숫자 앞에 0들을 더해줌.
+            }
+
+            // 날짜 찍기
+            function formatDate() {
+                var d = new Date(),                 // 날짜 관련 값들을 Date객체를 통해 호출함.
+                    month = '' + (d.getMonth() + 1),
+                    day = '' + d.getDate(),
+                    year = d.getFullYear(), 
+                    hour = d.getHours(),
+                    minutes = d.getMinutes();
+
+                if (month.length < 2) month = '0' + month;  // 1자리수로 나올 때 앞에 0을 더함.
+                if (day.length < 2) day = '0' + day;
+                if (hour.length < 2) hour = '0' + hour;	
+                if (minutes.length < 2) minutes = '0' + minutes;	
+
+                return [year, month, day].join('-') + ' ' + [hour, minutes].join(':'); // 날짜를 join으로 이어서 출력.
+            }
+
+		
+			
+		// 출력
+        document.write("<table border=0>");
+		document.write("<tr><td colspan=7 align=center>성적집계표</td></tr>");
+		document.write("<tr><td colspan=7 align=right>" + "출력일자 : " + formatDate() + "</td></tr>");
+		document.write("<tr><td colspan=7>====================================</td></tr>");
+		document.write("<tr align=right><td align=left>번호</td><td align=left>이름</td><td>국어</td><td>영어</td><td>수학</td><td>총점</td><td>평균</td></tr>");
+		document.write("<tr><td colspan=7>====================================</td></tr>");
+        for(var i = 0; i < iPerson; i++) {
+            document.write("<tr align=right>");
+            document.write("<td align=left>" + leadingZeros((i+1), 3) + "</td>");
+            document.write("<td align=left>" + name_k08[i] + "</td>");
+            document.write("<td>" + kor_k08[i] + "</td>");
+            document.write("<td>" + eng_k08[i] + "</td>");
+            document.write("<td>" + mat_k08[i] + "</td>");
+            document.write("<td>" + sum[i] + "</td>");
+            document.write("<td>" + ave[i] + "</td>");
+            document.write("</tr>");	
+		}
+		document.write("<tr><td colspan=7>====================================</td></tr>");
+
+        document.write("<tr align=right>");
+        document.write("<td align=left>합계</td>");
+        document.write("<td> </td>");
+        document.write("<td>" + korsum + "</td>");
+        document.write("<td>" + engsum + "</td>");
+        document.write("<td>" + matsum + "</td>");
+        document.write("<td>" + sumsum + "</td>");
+        document.write("<td>" + avesum + "</td>");
+        document.write("</tr>");  
+
+        document.write("<tr align=right>");
+        document.write("<td align=left>평균</td>");
+        document.write("<td> </td>");
+        document.write("<td>" + korave + "</td>");
+        document.write("<td>" + engave + "</td>");
+        document.write("<td>" + matave + "</td>");
+        document.write("<td>" + sumave + "</td>");
+        document.write("<td>" + aveave + "</td>");
+        document.write("</tr>"); 
+
+        document.write("</table>");
+        
+    </script>
+</head>
+</html>

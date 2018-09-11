@@ -1,0 +1,25 @@
+<meta charset="UTF-8"/>
+<html>
+	<head>
+		<script>
+        // 배열 만들기
+		var iPerson = 30;
+		var name = new Array();
+        var kor = new Array();
+        var eng = new Array();
+        var mat = new Array();
+		
+		// 자료 만들고 배열에 넣기
+		for(var i = 0; i < iPerson; i++) {
+			name[i] = i;
+			kor[i] = Math.floor(Math.random() * 100);
+			eng[i] = Math.floor(Math.random() * 100);
+			mat[i] = Math.floor(Math.random() * 100);
+		}
+
+        for(var i = 0; i < iPerson; i++) {
+            document.write(name[i]+ "<br>");
+        }
+        </script>
+    </head>
+</html>

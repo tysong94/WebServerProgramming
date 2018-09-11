@@ -1,0 +1,30 @@
+<!-- 날짜 : 6월 4일 -->
+<!-- 작성자 : 송태양 -->
+<!-- 제목 : 7. 조건식(if문) -->
+<meta charset="UTF-8"/>
+<html>
+<body>
+    <script>
+    // 점수 변수 선언
+    var score;
+    // 학점 계산 함수 정의
+    function hakjum_k08(score) {
+        if(score >= 90) {
+            return "A";
+        } else if(score >= 80) {
+            return "B";
+        } else if(score >= 70) {
+            return "C";
+        } else if(score >= 60) {
+            return "D";
+        } else  {
+            return "F";
+        }
+    }
+    // 입력창 띄워 변수에 값 넣기
+    score = prompt("점수를 입력하세요 : ", "");
+    console.log(score);
+    document.write("내 점수 : " + score + ", 내 학점 : " + hakjum_k08(score));
+    </script>
+</body>
+</html>

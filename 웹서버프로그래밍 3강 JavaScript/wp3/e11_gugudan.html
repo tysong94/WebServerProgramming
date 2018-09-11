@@ -1,0 +1,25 @@
+<!-- 날짜 : 6월 4일 -->
+<!-- 작성자 : 송태양 -->
+<!-- 제목 : 11. 구구단 -->
+<meta charset="UTF-8"/>
+<html>
+<body>
+    <script>
+        document.write("<H2>구구단k08</H2>");
+        document.write("<TABLE border=0 width = 100%>");    // 표 테두리x, 넓이 100&
+        for(var i = 1; i < 10; i = i + 3) {
+            for(var j = 1; j < 10; j++) {
+                // 표로 한줄(세칸)씩 찍음.
+                document.write("<tr>");
+                document.write("<td>" + i + " * " + j + " = " + i*j + "</td>");
+                document.write("<td>" + (i+1) + " * " + j + " = " + (i+1)*j + "</td>");
+                document.write("<td>" + (i+2) + " * " + j + " = " + (i+2)*j + "</td>");
+                document.write("</tr>");
+            }
+            // 3칸(3열)을 합치고 줄을 그어줌.
+            document.write("<tr><td colspan = 3><hr></td></tr>");
+        }
+        document.write("</table>");
+    </script>
+</body>
+</html>

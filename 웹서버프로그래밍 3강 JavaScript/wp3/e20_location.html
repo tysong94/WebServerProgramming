@@ -1,0 +1,24 @@
+<!-- 날짜 : 6월 4일 -->
+<!-- 작성자 : 송태양 -->
+<!-- 제목 : 20. 객체 - location -->
+<meta charset="UTF-8"/>
+<html>
+<head>
+    <script>
+    var name = "Hello";
+    function call() {
+        // window.location = "http://www.naver.com";
+        document.write(window.location.href + "<br>")       // 현재 URL의 주소
+        document.write(window.location.hash + "<br>");      // 현재 URL의 hash
+        document.write(window.location.protocol + "<br>");  // 현재 URL의 protocol
+        document.write(window.location.hostname + "<br>");  // 현재 URL의 hostname(ip)
+        document.write(window.location.port + "<br>");      // 현재 URL의 port
+    }
+    </script>
+</head>
+
+<body>
+    <script>call();</script><br>
+    Good...
+</body>
+</html>

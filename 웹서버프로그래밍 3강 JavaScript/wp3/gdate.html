@@ -1,0 +1,26 @@
+<meta charset="UTF-8"/>
+<html>
+<head>
+	<script>
+    function formatDate() {
+        var d = new Date(),
+            month = '' + (d.getMonth() + 1),
+            day = '' + d.getDate(),
+            year = d.getFullYear(), 
+            hour = d.getHours(),
+            minutes = d.getMinutes();
+
+        if (month.length < 2) month = '0' + month;
+        if (day.length < 2) day = '0' + day;
+
+        return [year, month, day].join('-') + ' ' + [hour, minutes].join(':');
+    }
+    </script>
+</head>
+<body>
+    <script>
+        var today = new Date();
+        document.write(formatDate(today));
+    </script>
+</body>
+</html>        

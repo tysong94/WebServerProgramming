@@ -1,0 +1,20 @@
+<!-- 날짜 : 6월 4일 -->
+<!-- 작성자 : 송태양 -->
+<!-- 제목 : 15. 객체 - String -->
+<meta charset="UTF-8"/>
+<html>
+<body>
+    <script>
+    function call() {
+          myString = "Hello World Welcome to my world_k08";
+          document.write("Test 1 : " + myString.charAt(12) + "<br>");       // charAt(12) : 해당 인덱스의 문자를 가져옴
+          document.write("Test 2 : " + myString.indexOf("to") + "<br>");    // indexOf("문자열") : 해당 문자열의 처음 위치 인덱스
+          document.write("Test 3 : " + myString.lastIndexOf("to") + "<br>");// lastIndexOf("문자열") : 해당 문자열의 마지막 위치 인덱스
+          document.write("Test 4 : " + myString.substr(5, 5) + "<br>");     // substr(5, 5) : 5번 인덱스부터 다음 5개의 글자를 가져옴
+          document.write("Test 5 : " + myString.toLowerCase() + "<br>");    // toLowerCase() : 모두 소문자로 바꿔줌.
+          document.write("Test 6 : " + myString.toUpperCase() + "<br>");    // toUpperCase() : 모두 대문자로 바꿔줌.
+        }
+    call();
+    </script>
+</body>
+</html>

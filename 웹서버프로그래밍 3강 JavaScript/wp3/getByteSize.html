@@ -1,0 +1,28 @@
+<meta charset="UTF-8"/>
+<html>
+	<head>
+		<script>
+		function getByteSize(str) {
+			var en = 0, ko = 0, etc = 0;
+			var arr = str.split("");		// 문자열 -> 문자 배열			
+	
+			for (var i = 0; i < arr.length; i++) {      // 첫번째 문자부터 맨 마지막 문자까지 바이트 누적.			
+				if (arr[i] >= 'A' && arr[i] <= 'z') {   // 영어이면 영어 1바이트 누적
+                    en++;   
+                } else if (arr[i] >= '\uAC00' && arr[i] <= '\uD7A3') {// 한글이면 한글 2바이트 누적
+                    ko++; 
+                    ko++;
+                } else {                                // 그외이면 그외 1바이트 누적
+                    etc++; 
+                }													
+			}
+			return (en + ko + etc);					// 총 바이트를 더하여 반환한다.							
+		}
+        </script>
+    </head>
+    <body>
+        <script>
+        document.write(getByteSize("서울23"));
+        </script>
+    </body>
+</html>

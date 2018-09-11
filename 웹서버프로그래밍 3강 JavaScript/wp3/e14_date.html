@@ -1,0 +1,37 @@
+<!-- 날짜 : 6월 4일 -->
+<!-- 작성자 : 송태양 -->
+<!-- 제목 : 14. 기본지식 - Object -->
+<meta charset="UTF-8"/>
+<html>
+<body>
+    <script>
+        // 2018년 6월 4일 월요일
+        // 년 -> 1, 2, 3,..
+        // 월 -> 0, 1, 2,..
+        // 일 -> 1, 2, 3...
+        // 요일 -> 0, 1, 2...
+        // getMonth() : 인덱스를 가져옴. -> 0부터...
+        // getDay() : 인덱스를 가져옴. -> 0부터...
+        var d = new Date(); // 현재 시간
+        // weekday 배열 생성.
+        var weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+        document.write(
+            " 년도 : " + d.getFullYear() +      // 년도 가져오기 
+            " 월 : " + (d.getMonth() + 1) +     // 월 인덱스 가져오기 -> +1 해줘야함.
+            " 일 : " + d.getDate() +            // 일 가져오기
+            " 요일 : " + weekday[d.getDay()] +  // 요일 가져오기 -> 배열에서 가져옴.
+            " 시 : " + d.getHours() +           // 시간, 가져오기
+            " 분 : " + d.getMinutes() +         // 분 가져오기
+            " 초 : " + d.getSeconds() +         // 초 가져오기
+            " 밀리초 : " + d.getMilliseconds() +// 밀리초 가져오기
+            "<hr>"                              // 선긋기
+        );
+       
+        
+        d.setFullYear(2010);        // 2010년으로 바꿈.
+        document.write(d + "<hr>");
+        d.setMonth(7);              // 8월로 바꿈.
+        document.write(d + "<hr>");
+    </script>
+</body>
+</html>

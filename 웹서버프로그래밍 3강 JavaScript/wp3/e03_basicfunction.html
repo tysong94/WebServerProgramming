@@ -1,0 +1,22 @@
+<!-- 날짜 : 6월 4일 -->
+<!-- 작성자 : 송태양 -->
+<!-- 제목 : 기본 함수 몇가지 -->
+<meta charset="UTF-8"/>
+<html>
+    <body>
+        <script>
+        // prompt(String1, String2) : String1을 출력하고, 입력칸에 String2를 초기값으로 넣음.
+        name = prompt("Enter Name", "k08송태양");
+        // confirm(String) : String을 확인문으로 출력하고 확인, 취소 버튼을 표시.
+        // 확인 : true, 취소 : false
+        if(confirm("Continue ?\nClick Button") == true) {
+            answer = 'true';
+        } else {
+            answer = 'false';
+        }
+        // alert(String) : String을 경고문으로 출력함.
+        alert("Name : " + name + "\nAnswer : " + answer);
+        document.write("Your Name is " + name);
+        </script>
+    </body>
+</html>

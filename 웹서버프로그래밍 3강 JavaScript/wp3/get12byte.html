@@ -1,0 +1,42 @@
+<meta charset="UTF-8"/>
+<html>
+	<head>
+		<script>
+        // 문자열 -> 12바이트 문자열
+		function String12Byte(str) {
+			var char = str.split("");	// 문자열 -> 문자 배열
+			var en = 0, ko = 0, etc = 0;
+			var count = 0;
+			
+			for (var i = 0; i < char.length; i++) {					// 문자열을 12바이트까지 누적하고 해당 글자수를 계산
+				if (char[i] >= 'A' && char[i] <= 'z') { 
+					en++; 
+				} else if (char[i] >= '\uAC00' && char[i] <= '\uD7A3') { 
+					ko++; ko++; 
+				} else { 
+					etc++; 
+				}														
+					
+				if(en + ko + etc < 12) { count = i; }						// 12바이트 미만이면 글자수 반환	
+				if(en + ko + etc == 12) { count = i; break; } 				// 12바이트가 되면 멈추고 해당 글자수 반환
+				else if(en + ko + etc == 13) { count = i - 1; break; }		// 13바이트가 되면 멈추고 해당 글자수 -1 반환
+			}
+						
+			var char12 = new Array();							// 12바이트로 쪼갠 문자 -> 배열에 다시 넣음(12바이트가 된 글자수만큼)
+			for(var i = 0; i < count+1; i++){ 
+				char12[i] = char[i]; 
+			}
+	
+			str = char12.join('');										// 문자 배열(12바이트 이하) -> 문자열 재조합 
+				
+			return str; 													// 자른 문자열 반환.
+		}
+		</script>
+	</head>
+	<body>
+		<script>
+		document.write(String12Byte("서울") + "<br>");
+		document.write(String12Byte("서울12345678") + "<br>");
+		document.write(String12Byte("서울1234567한<br>") + "<br>");
+		</script>
+	</body>

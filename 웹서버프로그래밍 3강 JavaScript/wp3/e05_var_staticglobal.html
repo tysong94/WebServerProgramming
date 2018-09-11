@@ -1,0 +1,28 @@
+<!-- 날짜 : 6월 4일 -->
+<!-- 작성자 : 송태양 -->
+<!-- 제목 : 5. 변수(지역, 전역) -->
+<meta charset="UTF-8"/>
+<html>
+    <head>
+        <script>
+        // 함수 바깥의 변수 = 전역 변수
+        var name = "Hellok08";
+        function call1() {
+            // 함수 안의 변수 = 지역 변수
+            // 지역 변수 호출
+            var name = "Worldk08";
+            document.write("지역 : " + name);
+        }
+        function call2() {
+            // 전역 변수 호출
+            document.write("전역 : " + name);
+        }
+        </script>
+    </head>
+    <body>
+        <script>call1();</script>
+        <script>call2();</script>
+        Good...
+    </body>
+
+</html>

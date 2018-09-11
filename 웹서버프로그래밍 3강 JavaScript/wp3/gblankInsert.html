@@ -1,0 +1,40 @@
+<meta charset="UTF-8"/>
+<html>
+	<head>
+		<script>
+			function getByteSize(str) {
+				var en = 0, ko = 0, etc = 0;
+				var arr = str.split("");		// 문자열 -> 문자 배열			
+		
+				for (var i = 0; i < arr.length; i++) {      // 첫번째 문자부터 맨 마지막 문자까지 바이트 누적.			
+					if (arr[i] >= 'A' && arr[i] <= 'z') {   // 영어이면 영어 1바이트 누적
+						en++;   
+					} else if (arr[i] >= '\uAC00' && arr[i] <= '\uD7A3') {// 한글이면 한글 2바이트 누적
+						ko++; 
+						ko++;
+					} else {                                // 그외이면 그외 1바이트 누적
+						etc++; 
+					}													
+				}
+				return (en + ko + etc);					// 총 바이트를 더하여 반환한다.							
+			}
+
+		// 뒤에 블랭크를 붙이는 메소드
+		function BlankBackword(str, kan){
+			var bytes = getByteSize(str);				// 문자열 바이트수
+			var blankCount = kan - bytes; 				// 총 바이트에서 남은 바이트수 계산.
+			
+			var blank = ""; 						// 남은 바이트수만큼 공백을 만듦.
+			for(var i = 1; i <= blankCount; i++) {
+				blank = blank + " ";
+			}
+			
+			return str = str + blank; 				// 기존문자 + 공백 반환.
+		}
+		</script>
+	</head>
+	<body>
+		<script>
+			document.write(BlankBackword("12345678", 12));
+		</script>
+	</body>
