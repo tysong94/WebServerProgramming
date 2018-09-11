@@ -1,0 +1,95 @@
+<!-- 날짜 : 7월 19일, 송태양, 제목 : 데이터 하나 조회 -->
+<meta charset="UTF-8"/>
+<html>
+<head>
+    <script>
+        // 공백 체크 함수 : true - 공백, false - 공백x
+        function checkSpace(str) {
+           if(str.search(/\s/) != -1) {
+               return true;
+           } else {
+               false;
+           }
+        }
+       
+        //숫자 체크 함수
+       function checkNumber(str) {
+            var string = /^[0-9]*$/;
+            var isValid = true;
+            if(string.test(str)){
+                isValid = false;
+            }
+            return isValid;
+        }
+
+        // 특수문자 체크 함수
+        function checkSpecial(str) {
+            var string = /[~!@\#$%<>^&*\()\-=+_\’]/gi; 
+            var isValid = false;
+            if(string.test(str)) {
+                isValid = true;
+            }
+            return isValid;
+        }
+
+        // 글자수 체크
+        function checkLength(str) {
+           return str.length;
+        }
+
+        // 서브밋 
+        function submitform(){
+            if(document.myform.name.value == "" || document.myform.kor.value == "" || document.myform.eng.value == "" || document.myform.mat.value == ""){
+                alert("값을 입력하세요.");
+            } else if(checkSpace(document.myform.name.value) == true) {
+                alert("공백을 입력할 수 없습니다.");                
+            } else if(checkNumber(document.myform.kor.value) == true || checkNumber(document.myform.eng.value) == true || checkNumber(document.myform.mat.value) == true) {
+                alert("숫자만 입력하세요.")
+            } else if(checkSpecial(document.myform.name.value) == true) {
+                alert("특수문자를 입력할 수 없습니다.");
+            } else if(checkLength(document.myform.name.value) > 10) {
+                alert("10글자 이내로 입력해야 합니다.");
+            } else if(document.myform.kor.value < 0 || document.myform.eng.value < 0 || document.myform.mat.value < 0){
+                alert("성적은 0 ~ 100 사이로 입력해야 합니다.");
+            } else if(document.myform.kor.value >100 || document.myform.eng.value >100 || document.myform.mat.value > 100){
+                alert("성적은 0 ~ 100 사이로 입력해야 합니다.");
+            } else if(document.myform.kor.value){
+                myform.submit();
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>성적입력 추가</h1>
+    <!-- post방식의 form을 작성 -->
+    <form name=myform method=post action="insertDB.jsp">
+        <table width=400 border=1>
+            <tr align=center>
+                <td>이름</td>
+                <td><input type=text name=name></td>
+            </tr>
+            <tr align=center>
+                <td>학번</td>
+                <td>자동부여</td>
+            </tr>
+            <tr align=center>
+                <td>국어</td>
+                <td><input type=number name=kor></td>
+            </tr>
+            <tr align=center>
+                <td>영어</td>
+                <td><input type=number name=eng></td>
+            </tr>
+            <tr align=center>
+                <td>수학</td>
+                <td><input type=number name=mat></td>
+            </tr>            
+        </table>
+        <table width=400 border=0>
+            <tr align=center>
+                <td colspan=2><input type=button onclick="submitform()" value=추가></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

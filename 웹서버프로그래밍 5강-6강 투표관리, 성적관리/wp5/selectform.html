@@ -1,0 +1,64 @@
+<!-- 날짜 : 7월 19일, 송태양, 제목 : 데이터 하나 조회 -->
+<meta charset="UTF-8"/>
+<html>
+<head>
+    <script>
+        // 숫자 체크 함수
+        function checkNumber(str) {
+            var string = /^[0-9]*$/;
+            var isValid = true;
+            if(string.test(str)) {
+                isValid = false;
+            }
+            return isValid;
+        }
+        // 제출 함수
+        function submitform(){
+            if(document.myform.inputid.value == ""){
+                alert("값을 입력하세요.");
+            } else if(checkNumber(document.myform.inputid.value) == true){
+                alert("숫자만 입력하세요.")
+            } else {
+                myform.submit();
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>성적 조회 후 정정/삭제</h1>
+    <!-- post방식의 form을 작성 -->
+    <form name="myform" method="post" action="selectDB.jsp">
+        <!-- 성적 조회 입력란 -->
+        <table width=400 border=0>
+            <tr align=center>
+                <td>조회할 학번</td>
+                <td><input type=number name=inputid></td>                
+                <td><input type=button onclick="submitform()" value="조회"></td>
+            </tr>
+        </table>
+        <!-- 공란 -->
+        <table width=400 border=1>
+            <tr align=center>
+                <td>이름</td>
+                <td><input type=text name=name readonly></td>
+            </tr>
+            <tr align=center>
+                <td>학번</td>
+                <td></td>
+            </tr>
+            <tr align=center>
+                <td>국어</td>
+                <td><input type=number name=korean readonly></td>
+            </tr>
+            <tr align=center>
+                <td>영어</td>
+                <td><input type=number name=english readonly></td>
+            </tr>
+            <tr align=center>
+                <td>수학</td>
+                <td><input type=number name=math readonly></td>
+            </tr>            
+        </table>   
+    </form>
+</body>
+</html>
